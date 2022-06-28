@@ -11,9 +11,9 @@ _Script 100% compatível com o [Termux](https://f-droid.org/en/packages/com.term
 
 **Executar e rodar o script**
 ```
-curl -s https://raw.githubusercontent.com/zxlordxz/tcl/main/tcl.sh -o tcl.sh; bash tcl.sh
+curl -s https://raw.githubusercontent.com/zxlordxz/tv/main/tcl -o tcl; bash tcl
 ```
 Após o comando acima, para chamar o script novamente basta digitar:
 ```
-bash ott.sh
+bash tcl
 ```
