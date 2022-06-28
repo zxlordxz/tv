@@ -742,9 +742,7 @@ menu_InstallApps() {
 			4 ) install_App "Downloader" ;;
 			5 ) install_App "SmartTube" ;;
 			6 ) install_App "SendFiles" ;;
-			7 ) echo -e " ${BLU}*${STD} ${NEG}Baixando a versão mais recente do Launcher ATV PRO MOD e Widget...${STD}"
-		wget https://youcinetv.page.link/Home
- && install_App ;;
+			7 ) install_App "wget https://youcinetv.page.link/Home" ;;
 			8 ) install_App "FX File" ;;
 			9 ) install_App "FX File Key" ;;
 			10 ) install_App "LauncherSetting" ;;
