@@ -567,6 +567,29 @@ install_App() {
 	pause "Tecle [Enter] para retonar ao menu" ; menu_InstallApps
 }
 
+install_App2() {
+	# Baixa o App
+	echo ""
+	echo -e " ${BLU}*${STD} ${NEG}Baixando o ${1}...${STD}" && sleep 1
+	wget https://app.youcine.vip/app/"${1}".apk && clear
+	if [ "$?" -ne 0 ]; then
+		echo ""
+		echo -e " ${RED}*${STD} ${NEG}Erro ao baixar o arquivo. Verifique sua conexão ou tente mais tarde.${STD}"
+	else
+		echo ""
+		echo -e " ${BLU}*${STD} ${NEG}Instalando o ${1}, aguarde...${STD}"
+		fakeroot adb install -r "${1}.apk"
+		if [ "$?" -eq "0" ]; then
+			echo ""
+			echo -e " ${GRE}*${STD} ${NEG}${1} instalado com sucesso!${STD}"
+		else
+			echo ""
+			echo -e " ${RED}*${STD} ${NEG}Erro na instalação.${STD}"
+		fi
+	fi
+	pause "Tecle [Enter] para retonar ao menu" ; menu_InstallApps
+}
+
 # --- MENU ---
 # Menu principal
 menu_principal(){
@@ -742,7 +765,7 @@ menu_InstallApps() {
 			4 ) install_App "Downloader" ;;
 			5 ) install_App "SmartTube" ;;
 			6 ) install_App "SendFiles" ;;
-			7 ) install_App "wget https://youcinetv.page.link/Home" ;;
+			7 ) install_App2 "cinetv_homeoriginal-pm" ;;
 			8 ) install_App "FX File" ;;
 			9 ) install_App "FX File Key" ;;
 			10 ) install_App "LauncherSetting" ;;
