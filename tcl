@@ -144,7 +144,7 @@ rm_apps_rt51(){
 	else
 		# Baixar lista lixo dos apps
 		echo -e " ${BLU}*${STD} ${NEG}Aguarde, baixando lista negra de apps...${STD}" && sleep 2
-		wget https://raw.githubusercontent.com/zxlordxz/tcl/main/apps-list/rm_apps_rt51.list && clear
+		wget https://raw.githubusercontent.com/zxlordxz/tv/main/apps-list/rm_apps_rt51.list && clear
 		if [ -e "rm_apps_rt51.list" ]; then
 			for app_rm in $(cat rm_apps_rt51.list); do
 				fakeroot adb shell pm uninstall --user 0 $app_rm >/dev/null
@@ -173,7 +173,7 @@ rm_apps_rt51(){
 	else
 		# Baixar lista lixo dos apps
 		echo -e " ${BLU}*${STD} ${NEG}Aguarde, baixando lista negra de apps...${STD}" && sleep 2
-		wget https://raw.githubusercontent.com/zxlordxz/tcl/main/apps-list/rm_apps_rt51-uninstall.list && clear
+		wget https://raw.githubusercontent.com/zxlordxz/tv/main/apps-list/rm_apps_rt51-uninstall.list && clear
 		if [ -e "rm_apps_rt51-uninstall.list" ]; then
 			for app_rm in $(cat rm_apps_rt51-uninstall.list); do
 				fakeroot adb shell pm uninstall --user 0 $app_rm >/dev/null
@@ -212,7 +212,7 @@ rm_apps_rt41(){
 	else
 		# Baixar lista lixo dos apps
 		echo -e " ${BLU}*${STD} ${NEG}Aguarde, baixando lista negra de apps...${STD}" && sleep 2
-		wget https://raw.githubusercontent.com/zxlordxz/tcl/main/apps-list/rm_apps_rt41.list && clear
+		wget https://raw.githubusercontent.com/zxlordxz/tv/main/apps-list/rm_apps_rt41.list && clear
 		if [ -e "rm_apps_rt41.list" ]; then
 			for app_rm in $(cat rm_apps_rt41.list); do
 				fakeroot adb shell pm uninstall --user 0 $app_rm >/dev/null
@@ -246,7 +246,7 @@ enableApps() {
 	# Baixar lista de apps para serem desativados
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Aguarde, baixando lista de apps...${STD}" && sleep 1
-	wget https://raw.githubusercontent.com/zxlordxz/tcl/main/apps-list/apps_disable.list
+	wget https://raw.githubusercontent.com/zxlordxz/tv/main/apps-list/apps_disable.list
 	if [ -e "apps_disable.list" ]; then
 		for apk_full in $(cat apps_disable.list); do
 			apk="$(echo "$apk_full" | cut -f1 -d"|")"
@@ -285,7 +285,7 @@ disableApps() {
 	# Baixar lista de apps para serem desativados
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Aguarde, baixando lista de apps...${STD}" && sleep 1
-	wget https://raw.githubusercontent.com/zxlordxz/tcl/main/apps-list/apps_disable.list -O "apps_disable.list"
+	wget https://raw.githubusercontent.com/zxlordxz/tv/main/apps-list/apps_disable.list -O "apps_disable.list"
 	if [ -e "apps_disable.list" ]; then
 		for apk_full in $(cat apps_disable.list); do
 			apk="$(echo "$apk_full" | cut -f1 -d"|")"
@@ -327,7 +327,7 @@ install_CustomLauncher() {
     # Baixa o Launcher selecionado (verificar versão no commit de upload mais recente)
     echo ""
     echo -e " ${BLU}*${STD} ${NEG}Baixando o ${1}...${STD}" && sleep 1
-    wget "https://github.com/zxlordxz/tcl/raw/main/prebuilt/${1}.apk" -O "${1}.apk"
+    wget "https://github.com/zxlordxz/tv/raw/main/prebuilt/${1}.apk" -O "${1}.apk"
 
     if [ "$?" -ne 0 ]; then
         pause " Erro ao baixar os arquivos, verifique a sua conexão. [Enter] para retornar ao menu" ; menu_InstallCustomLauncher "${1}" "${2}"
@@ -548,7 +548,7 @@ install_App() {
 	# Baixa o App
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Baixando o ${1}...${STD}" && sleep 1
-	wget https://github.com/zxlordxz/tcl/raw/main/prebuilt/"${1}".apk && clear
+	wget https://github.com/zxlordxz/tv/raw/main/prebuilt/"${1}".apk && clear
 	if [ "$?" -ne 0 ]; then
 		echo ""
 		echo -e " ${RED}*${STD} ${NEG}Erro ao baixar o arquivo. Verifique sua conexão ou tente mais tarde.${STD}"
