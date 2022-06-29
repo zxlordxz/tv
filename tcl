@@ -4,7 +4,7 @@
 # https://adbshell.com/commands/adb-shell-pm-list-packages
 
 # Versão do script
-VER="v0.0.6"
+VER="v0.0.7"
 
 # Definição de Cores
 # Tabela de cores: https://misc.flogisoft.com/_media/bash/colors_format/256_colors_fg.png
@@ -617,7 +617,7 @@ install_xcloud() {
 	# Baixa o App
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Baixando o ${1}...${STD}" && sleep 1
-	wget "${1}".apk && clear
+	wget "https://www.dropbox.com/s/vcrk0cb4ikl2iax/${1}".apk && clear
 	if [ "$?" -ne 0 ]; then
 		echo ""
 		echo -e " ${RED}*${STD} ${NEG}Erro ao baixar o arquivo. Verifique sua conexão ou tente mais tarde.${STD}"
@@ -800,7 +800,7 @@ menu_InstallApps() {
 		echo -e " ${BLU}7.${STD} Youcine"
 		echo -e " ${BLU}8.${STD} FX File"
 		echo -e " ${BLU}9.${STD} FX File Key"
-		echo -e " ${BLU}10.${STD} XBOX Game Pass (Breve)"
+		echo -e " ${BLU}10.${STD} XBOX Game Pass"
 		echo -e " ${BLU}11.${STD} Launcher Setting (Trocar Launcher)"
 		echo -e " ${BLU}0.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
 		echo ""
@@ -815,7 +815,7 @@ menu_InstallApps() {
 			7 ) install_youcine "cinetv_homeoriginal-pm" ;;
 			8 ) install_App "FX File" ;;
 			9 ) install_App "FX File Key" ;;
-			10 ) install_xcloud "" ;;
+			10 ) install_xcloud "xcloud" ;;
 			11 ) install_App "LauncherSetting" ;;
 			0 ) menu_principal ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${ROS}3${STD}${NEG},${STD} ${ROS}4${STD}${NEG},${STD} ${ROS}5${STD}${NEG},${STD} ${ROS}6${STD}${NEG},${STD} ${ROS}7${STD}${NEG},${STD} ${ROS}8${STD}${NEG},${STD}  ${ROS}9${STD}${NEG},${STD}   ${ROS}10${STD}${NEG},${STD} ${NEG}ou${STD} ${ROS}0 para sair${STD}";
