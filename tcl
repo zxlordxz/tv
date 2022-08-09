@@ -671,26 +671,26 @@ menu_principal(){
 		# Verifica o Status da TV, se está conectada ou não via ADB
 		ping -c 1 $IP >/dev/null 2>&1
 		if [ "$?" -ne 0 ]; then
-			echo -e " ${NEG}Status:${STD} ${RED}Desconectado${STD} ${NEG}via adb${STD}"
+			echo -e " ${NEG}STATUS:${STD} ${RED}DESCONECTADO${STD} ${NEG}VIA ADB${STD}"
 		else
 			if [ "$(fakeroot adb connect $IP | cut -f1 -d" " | grep -e connected -e already)" != "" ]; then
-				echo -e " ${NEG}Status:${STD} ${GRE}Conectado${STD} ${NEG}via adb${STD}"
+				echo -e " ${NEG}STATUS:${STD} ${GRE}CONECTADO${STD} ${NEG}VIA ADB${STD}"
 			else
-				echo -e " ${NEG}Status:${STD} ${RED}Desconectado${STD} ${NEG}via adb.${STD}"
+				echo -e " ${NEG}STATUS:${STD} ${RED}DESCONECTADO${STD} ${NEG}VIA ADB.${STD}"
 			fi
 		fi
 		echo ""
-		echo -e " ${GRY247}Este script possui a finalidade de otimizar${STD}"
-		echo -e " ${GRY247}o sistema Android TV, removendo e desativando${STD}"
-		echo -e " ${GRY247}alguns apps e instalando outros.${STD}"
+		echo -e " ${GRY247}ESTE SCRIPT POSSUI A FINALIDADE DE OTIMIZAR${STD}"
+		echo -e " ${GRY247}O SISTEMA ANDROID TV, REMOVENDO E DESATIVANDO${STD}"
+		echo -e " ${GRY247}ALGUNS APPS E INSTALANDO OUTROS.${STD}"
 		echo ""
 		echo ""
-		echo -e " ${BLU}1.${STD} ${RED009}Remover apps lixo (RT51)${STD}"
-		echo -e " ${BLU}2.${STD} ${RED009}Remover apps lixo (RT41)${STD}"
-		echo -e " ${BLU}3.${STD} ${GRY247}Desativar${STD}/${GRE046}Ativar apps${STD}"
-		echo -e " ${BLU}4.${STD} ${BLU039}Instalar Launcher${STD}"
-		echo -e " ${BLU}5.${STD} ${GRE046}Instalar novos apps${STD}"
-		echo -e " ${BLU}0.${STD} ${RED}Sair${STD}"
+		echo -e " ${BLU}1.${STD} REMOVER APPS INÚTIL (RT51)"
+		echo -e " ${BLU}2.${STD} REMOVER APPS INÚTIL (RT41)"
+		echo -e " ${BLU}3.${STD} DESATIVAR/ATIVAR APPS DO SISTEMA"
+		echo -e " ${BLU}4.${STD} INSTALAR LAUNCHER"
+		echo -e " ${BLU}5.${STD} INSTALAR NOVOS APPS"
+		echo -e " ${BLU}0.${STD} SAIR DO PAINEL"
 		echo ""
 		read -p " Digite um número e tecle [Enter]: " option
 		case "$option" in
