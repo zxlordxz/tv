@@ -733,15 +733,14 @@ menu_launcher(){
 	clear
 	option=0
 	until [ "$option" = "3" ]; do
-		separacao
-		echo -e " ${ROX027}Launcher ATV PRO MOD${STD}"
-		separacao
-		echo ""
-		echo -e " ${BLU}1.${STD} ${GRE046}Instalar e ativar Launcher${STD}"
-		echo -e " ${BLU}2.${STD} ${GRY247}Desativar Launcher${STD}"
-		echo -e " ${BLU}3.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
-		echo ""
-		read -p " Digite um número:" option
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e "   LAUNCHER ATV PRO MOD"
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}1.${STD} Instalar e ativar Launcher"
+		echo -e " ${BLU}2.${STD} Desativar Launcher"
+		echo -e " ${BLU}3.${STD} Retornar ao Menu Principal"
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		read -p " Digite um Número:" option
 		case $option in
 			1 ) install_launcher ;;
 			2 ) disable_CustomLauncher "ATV Pro MOD" "com.tcl.home";;
@@ -755,17 +754,16 @@ menu_SelectCustomLauncher() {
 	clear
 	option=0
 	until [ "$option" = "4" ]; do
-		separacao
-		echo -e " ${ROX027}Escolha o Launcher${STD}"
-		separacao
-		echo ""
-		echo -e " ${BLU}1.${STD} ${BLU039}Launcher ATV Pro TCL Mod + Widget${STD}"
-		echo -e " ${BLU}2.${STD} ${BLU039}GoogleTV${STD}"
-		echo -e " ${BLU}3.${STD} ${BLU039}FLauncher${STD}"
-		echo -e " ${BLU}4.${STD} ${BLU039}WolfLauncher${STD}"
-		echo -e " ${BLU}0.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
-		echo ""
-		read -p " Digite um número: " option
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e "   ESCOLHA A LAUNCHER"
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}1.${STD} Launcher ATV Pro TCL Mod + Widget"
+		echo -e " ${BLU}2.${STD} GoogleTV"
+		echo -e " ${BLU}3.${STD} FLauncher"
+		echo -e " ${BLU}4.${STD} WolfLauncher"
+		echo -e " ${BLU}0.${STD} Retornar ao Menu Principal"
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		read -p " Digite um Número: " option
 		case $option in
 			1 ) menu_launcher;;
 			2 ) ANDROID_VERSION=`fakeroot adb shell getprop ro.build.version.release`
@@ -786,15 +784,13 @@ menu_InstallCustomLauncher() {
 	clear
 	option=0
 	until [ "$option" = "3" ]; do
-		separacao
 		echo -e " ${ROX027}${1}${STD}"
-		separacao
-		echo ""
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}1.${STD} ${GRE046}Instalar/atualizar${STD}"
 		echo -e " ${BLU}2.${STD} ${GRY247}Desinstalar${STD}"
 		echo -e " ${BLU}3.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
-		echo ""
-		read -p " Digite um número: " option
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		read -p " Digite um Número: " option
 		case $option in
 			1 ) install_CustomLauncher "${1}" "${2}";;
 			2 ) disable_CustomLauncher "${1}" "${2}";;
@@ -810,7 +806,7 @@ menu_InstallApps() {
 	option=0
 	until [ "$option" = "10" ]; do
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
-		echo -e "        INSTALAR/ATUALIZAR APPS"
+		echo -e "  INSTALAR/ATUALIZAR APPS"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}1.${STD} Aptoide TV"
 		echo -e " ${BLU}2.${STD} Deezer MOD"
@@ -826,7 +822,7 @@ menu_InstallApps() {
 		echo -e " ${BLU}12.${STD} Launcher Setting (Trocar Launcher)"
 		echo -e " ${BLU}0.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
-		read -p " Digite um número: " option
+		read -p " Digite um Número: " option
 		case $option in
 			1 ) install_App "Aptoide" ;;
 			2 ) install_App "Deezer" ;;
