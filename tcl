@@ -636,7 +636,7 @@ install_htv() {
 	# Baixa o App
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Baixando o ${1}...${STD}" && sleep 1
-	wget https://app.htvapp.net/marketdatas/apk/"${1}".apk && clear
+	wget https://github.com/zxlordxz/tv/raw/main/prebuilt/"${1}".apk && clear
 	if [ "$?" -ne 0 ]; then
 		echo ""
 		echo -e " ${RED}*${STD} ${NEG}Erro ao baixar o arquivo. Verifique sua conexão ou tente mais tarde.${STD}"
