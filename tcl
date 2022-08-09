@@ -572,7 +572,6 @@ atualizar() {
 	curl -s https://raw.githubusercontent.com/zxlordxz/tv/main/tcl -o tcl; bash tcl
 		echo ""
 		echo -e " ${RED}*${STD} ${NEG}Erro ao atualizar. Verifique sua conexão ou tente mais tarde.${STD}"
-	else
 	fi
 	pause "Tecle [Enter] para retonar ao menu" ; menu_principal
 }
