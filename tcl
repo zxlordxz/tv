@@ -566,6 +566,17 @@ install_App() {
 	pause "Tecle [Enter] para retonar ao menu" ; menu_InstallApps
 }
 
+atualizar() {
+	# Atualiza o script
+	echo ""
+	curl -s https://raw.githubusercontent.com/zxlordxz/tv/main/tcl -o tcl; bash tcl
+		echo ""
+		echo -e " ${RED}*${STD} ${NEG}Erro ao atualizar. Verifique sua conexão ou tente mais tarde.${STD}"
+	else
+	fi
+	pause "Tecle [Enter] para retonar ao menu" ; menu_principal
+}
+
 install_youcine() {
 	# Baixa o App
 	echo ""
@@ -664,7 +675,7 @@ menu_principal(){
 	clear
 	option=0
 	until [ "$option" = "6" ]; do
-		echo ""
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${CYA}OTMIZAÇÃO TV TCL PLATAFORMAS: RT41, RT51 e R51M ${STD}"
 		echo -e " ${YEL}$VER${STD}"
 
@@ -679,19 +690,20 @@ menu_principal(){
 				echo -e " ${NEG}STATUS:${STD} ${RED}DESCONECTADO${STD} ${NEG}VIA ADB.${STD}"
 			fi
 		fi
-		echo ""
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${GRY247}ESTE SCRIPT POSSUI A FINALIDADE DE OTIMIZAR${STD}"
 		echo -e " ${GRY247}O SISTEMA ANDROID TV, REMOVENDO E DESATIVANDO${STD}"
 		echo -e " ${GRY247}ALGUNS APPS E INSTALANDO OUTROS.${STD}"
-		echo ""
-		echo ""
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}1.${STD} Remover Apps Inúteis (RT51)"
 		echo -e " ${BLU}2.${STD} Remover Apps Inúteis (RT41)"
 		echo -e " ${BLU}3.${STD} Desativar/Ativar Apps do Sistema"
 		echo -e " ${BLU}4.${STD} Instalar Launcher"
 		echo -e " ${BLU}5.${STD} Instalar Novos Apps"
+                echo -e " ${BLU}6.${STD} Atualizar Script"
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}0.${STD} Sair do Painel"
-		echo ""
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		read -p " Digite um número e tecle [Enter]: " option
 		case "$option" in
 			1 ) rm_apps_rt51 ;;
@@ -699,6 +711,7 @@ menu_principal(){
 			3 ) menu_EnableDisableApps ;;
 			4 ) menu_SelectCustomLauncher ;;
 			5 ) menu_InstallApps ;;
+                        6 ) atualizar ;;
 			0 ) exit ; fakeroot adb disconnect $IP >/dev/null ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${ROS}3${STD}${NEG},${STD} ${ROS}4${STD}${NEG},${STD} ${ROS}5${STD},${STD} ${ROS}6${STD} ${NEG}ou${STD} ${ROS}0 para Sair${STD}"; 
 		esac
