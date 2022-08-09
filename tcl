@@ -4,7 +4,7 @@
 # https://adbshell.com/commands/adb-shell-pm-list-packages
 
 # Versão do script
-VER="v0.0.7"
+VER="v0.0.8"
 
 # Definição de Cores
 # Tabela de cores: https://misc.flogisoft.com/_media/bash/colors_format/256_colors_fg.png
@@ -55,7 +55,6 @@ pause(){
 termux(){
 	clear
 	echo -e " ${NEG}Bem vindo(a) ao SCRIPT TCL (Otimização TV TCL)${STD}"
-	echo -e " ${NEG}Modelos compatíveis: RT51, RT41 e R51M.${STD}"
 	separacao
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Baixando dependências para utilizar o script no Termux...${SDT}" && sleep 2
@@ -613,6 +612,29 @@ install_youtube() {
 	pause "Tecle [Enter] para retonar ao menu" ; menu_InstallApps
 }
 
+install_htv() {
+	# Baixa o App
+	echo ""
+	echo -e " ${BLU}*${STD} ${NEG}Baixando o ${1}...${STD}" && sleep 1
+	wget https://app.htvapp.net/marketdatas/apk/"${1}".apk && clear
+	if [ "$?" -ne 0 ]; then
+		echo ""
+		echo -e " ${RED}*${STD} ${NEG}Erro ao baixar o arquivo. Verifique sua conexão ou tente mais tarde.${STD}"
+	else
+		echo ""
+		echo -e " ${BLU}*${STD} ${NEG}Instalando o ${1}, aguarde...${STD}"
+		fakeroot adb install -r "${1}.apk"
+		if [ "$?" -eq "0" ]; then
+			echo ""
+			echo -e " ${GRE}*${STD} ${NEG}${1} instalado com sucesso!${STD}"
+		else
+			echo ""
+			echo -e " ${RED}*${STD} ${NEG}Erro na instalação.${STD}"
+		fi
+	fi
+	pause "Tecle [Enter] para retonar ao menu" ; menu_InstallApps
+}
+
 install_xcloud() {
 	# Baixa o App
 	echo ""
@@ -801,7 +823,8 @@ menu_InstallApps() {
 		echo -e " ${BLU}8.${STD} FX File"
 		echo -e " ${BLU}9.${STD} FX File Key"
 		echo -e " ${BLU}10.${STD} XBOX Game Pass"
-		echo -e " ${BLU}11.${STD} Launcher Setting (Trocar Launcher)"
+                echo -e " ${BLU}11.${STD} HTV"  
+		echo -e " ${BLU}12.${STD} Launcher Setting (Trocar Launcher)"
 		echo -e " ${BLU}0.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
 		echo ""
 		read -p " Digite um número: " option
@@ -816,7 +839,8 @@ menu_InstallApps() {
 			8 ) install_App "FX File" ;;
 			9 ) install_App "FX File Key" ;;
 			10 ) install_xcloud "xcloud" ;;
-			11 ) install_App "LauncherSetting" ;;
+                        11 ) install_htv "HTV" ;;
+			12 ) install_App "LauncherSetting" ;;
 			0 ) menu_principal ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${ROS}3${STD}${NEG},${STD} ${ROS}4${STD}${NEG},${STD} ${ROS}5${STD}${NEG},${STD} ${ROS}6${STD}${NEG},${STD} ${ROS}7${STD}${NEG},${STD} ${ROS}8${STD}${NEG},${STD}  ${ROS}9${STD}${NEG},${STD}   ${ROS}10${STD}${NEG},${STD} ${NEG}ou${STD} ${ROS}0 para sair${STD}";
 		esac
