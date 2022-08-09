@@ -685,12 +685,12 @@ menu_principal(){
 		echo -e " ${GRY247}ALGUNS APPS E INSTALANDO OUTROS.${STD}"
 		echo ""
 		echo ""
-		echo -e " ${BLU}1.${STD} REMOVER APPS INÚTIL (RT51)"
-		echo -e " ${BLU}2.${STD} REMOVER APPS INÚTIL (RT41)"
-		echo -e " ${BLU}3.${STD} DESATIVAR/ATIVAR APPS DO SISTEMA"
-		echo -e " ${BLU}4.${STD} INSTALAR LAUNCHER"
-		echo -e " ${BLU}5.${STD} INSTALAR NOVOS APPS"
-		echo -e " ${BLU}0.${STD} SAIR DO PAINEL"
+		echo -e " ${BLU}1.${STD} Remover Apps Inúteis (RT51)"
+		echo -e " ${BLU}2.${STD} Remover Apps Inúteis (RT41)"
+		echo -e " ${BLU}3.${STD} Desativar/Ativar Apps do Sistema"
+		echo -e " ${BLU}4.${STD} Instalar Launcher"
+		echo -e " ${BLU}5.${STD} Instalar Novos Apps"
+		echo -e " ${BLU}0.${STD} Sair do Painel"
 		echo ""
 		read -p " Digite um número e tecle [Enter]: " option
 		case "$option" in
