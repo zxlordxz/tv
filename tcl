@@ -709,7 +709,8 @@ menu_principal(){
 		echo -e " ${BLU}3.${STD} Desativar/Ativar Apps do Sistema"
 		echo -e " ${BLU}4.${STD} Instalar Launcher"
 		echo -e " ${BLU}5.${STD} Instalar Novos Apps"
-                echo -e " ${BLU}6.${STD} Atualizar Script"
+                echo -e " ${BLU}6.${STD} Emuladores"
+                echo -e " ${BLU}7.${STD} Atualizar Script"
                 echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}0.${STD} Sair do Painel"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
@@ -720,7 +721,8 @@ menu_principal(){
 			3 ) menu_EnableDisableApps ;;
 			4 ) menu_SelectCustomLauncher ;;
 			5 ) menu_InstallApps ;;
-                        6 ) atualizar ;;
+                        6 ) emuladores ;;
+                        7 ) atualizar ;;
 			0 ) exit ; fakeroot adb disconnect $IP >/dev/null ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${ROS}3${STD}${NEG},${STD} ${ROS}4${STD}${NEG},${STD} ${ROS}5${STD},${STD} ${ROS}6${STD} ${NEG}ou${STD} ${ROS}0 para Sair${STD}"; 
 		esac
@@ -819,6 +821,29 @@ menu_InstallCustomLauncher() {
 		case $option in
 			1 ) install_CustomLauncher "${1}" "${2}";;
 			2 ) disable_CustomLauncher "${1}" "${2}";;
+			0 ) menu_principal ;;
+			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${NEG}ou${STD} ${ROS}3${STD}${NEG}";
+		esac
+	done
+}
+
+# Menu de Emuladores
+emuladores(){ 
+	clear
+	option=0
+	until [ "$option" = "6" ]; do
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e "    INSTALAR EMULADORES"
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}1.${STD} Breve"
+                echo -e " ${BLU}2.${STD} Breve"
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}0.${STD} Voltar ao Menu Principal"
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		read -p " Digite um Número:" option
+		case $option in
+			1 )  ;;
+			2 )  ;;
 			0 ) menu_principal ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${NEG}ou${STD} ${ROS}3${STD}${NEG}";
 		esac
