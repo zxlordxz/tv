@@ -59,12 +59,32 @@ termux(){
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Baixando dependências para utilizar o script no Termux...${SDT}" && sleep 2
 	pkg update -y -o Dpkg::Options::=--force-confold
+
 	pkg install -y ncurses && pkg install -y android-tools && pkg install -y wget && pkg install -y fakeroot && clear
 	if [ "$?" -eq "0" ]; then
 		echo ""
 		echo -e " ${GRE}*${STD} ${NEG}Instalação conluida com sucesso!${STD}"
 		echo ""
 		pause " Tecle [Enter] para se conectar a TV..." ; conectar_tv
+	else
+		echo ""
+		echo -e " ${RED}*${STD} ${NEG}Erro ao baixar e instalar as dependências.\n Verifique sua conexão e tente novamente.${STD}" ; exit 0
+	fi
+}
+
+# Atualiza o Script
+atualizar(){
+	clear
+	echo -e " ${NEG}ATUALIZANDO SCRIPT${STD}"
+	separacao
+	echo ""
+	echo -e " ${BLU}*${STD} ${NEG}Baixando dependências para utilizar o script...${SDT}" && sleep 2
+        curl -s https://raw.githubusercontent.com/zxlordxz/tv/main/tcl -o tcl && bash tcl
+	if [ "$?" -eq "0" ]; then
+		echo ""
+		echo -e " ${GRE}*${STD} ${NEG}Instalação conluida com sucesso!${STD}"
+		echo ""
+		pause " Tecle [Enter] para Voltar ao Menu Principal..." ; menu_principal
 	else
 		echo ""
 		echo -e " ${RED}*${STD} ${NEG}Erro ao baixar e instalar as dependências.\n Verifique sua conexão e tente novamente.${STD}" ; exit 0
@@ -693,7 +713,7 @@ menu_principal(){
                 echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}0.${STD} Sair do Painel"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
-		read -p " Digite um número e tecle [Enter]: " option
+		read -p " Digite um Número e Tecle [ENTER]: " option
 		case "$option" in
 			1 ) rm_apps_rt51 ;;
 			2 ) rm_apps_rt41 ;;
@@ -712,19 +732,19 @@ menu_EnableDisableApps() {
 	clear
 	option=0
 	until [ "$option" = "3" ]; do
-		separacao
-		echo -e " ${ROX027}Ativar e Desativar Apps${STD}"
-		separacao
-		echo ""
-		echo -e " ${BLU}1.${STD} ${GRY247}Desativar apps${STD}"
-		echo -e " ${BLU}2.${STD} ${GRE046}Ativar apps${STD}"
-		echo -e " ${BLU}3.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
-		echo ""
-		read -p " Digite um número:" option
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e "    ATIVAR/DESATIVAR APPS DO SISTEMA"
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}1.${STD} Desativar Apps"
+		echo -e " ${BLU}2.${STD} Ativar Apps"
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}0.${STD} Voltar ao Menu Principal"
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		read -p " Digite um Número: " option
 		case $option in
 			1 ) disableApps ;;
 			2 ) enableApps ;;
-			3 ) menu_principal ;;
+			0 ) menu_principal ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${NEG}ou${STD} ${ROS}3${STD}${NEG}";
 		esac
 	done
@@ -739,14 +759,15 @@ menu_launcher(){
 		echo -e "   LAUNCHER ATV PRO MOD"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}1.${STD} Instalar e ativar Launcher"
-		echo -e " ${BLU}2.${STD} Desativar Launcher"
-		echo -e " ${BLU}3.${STD} Retornar ao Menu Principal"
+                echo -e " ${BLU}2.${STD} Desativar Launcher"
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}0.${STD} Voltar ao Menu Principal"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		read -p " Digite um Número:" option
 		case $option in
 			1 ) install_launcher ;;
 			2 ) disable_CustomLauncher "ATV Pro MOD" "com.tcl.home";;
-			3 ) menu_principal ;;
+			0 ) menu_principal ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${NEG}ou${STD} ${ROS}3${STD}${NEG}";
 		esac
 	done
@@ -763,7 +784,8 @@ menu_SelectCustomLauncher() {
 		echo -e " ${BLU}2.${STD} GoogleTV"
 		echo -e " ${BLU}3.${STD} FLauncher"
 		echo -e " ${BLU}4.${STD} WolfLauncher"
-		echo -e " ${BLU}0.${STD} Retornar ao Menu Principal"
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}0.${STD} Voltar ao Menu Principal"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		read -p " Digite um Número: " option
 		case $option in
@@ -790,13 +812,14 @@ menu_InstallCustomLauncher() {
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}1.${STD} ${GRE046}Instalar/atualizar${STD}"
 		echo -e " ${BLU}2.${STD} ${GRY247}Desinstalar${STD}"
-		echo -e " ${BLU}3.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}0.${STD} ${ROX063}Voltar ao Menu Principal${STD}"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		read -p " Digite um Número: " option
 		case $option in
 			1 ) install_CustomLauncher "${1}" "${2}";;
 			2 ) disable_CustomLauncher "${1}" "${2}";;
-			3 ) menu_principal ;;
+			0 ) menu_principal ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${NEG}ou${STD} ${ROS}3${STD}${NEG}";
 		esac
 	done
@@ -822,7 +845,8 @@ menu_InstallApps() {
 		echo -e " ${BLU}10.${STD} XBOX Game Pass"
                 echo -e " ${BLU}11.${STD} HTV"  
 		echo -e " ${BLU}12.${STD} Launcher Setting (Trocar Launcher)"
-		echo -e " ${BLU}0.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
+                echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e " ${BLU}0.${STD} ${ROX063}Voltar ao Menu Principal${STD}"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		read -p " Digite um Número: " option
 		case $option in
