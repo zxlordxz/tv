@@ -95,8 +95,8 @@ atualizar(){
 conectar_tv(){
 	clear
 	export ANDROID_NO_USE_FWMARK_CLIENT=1
-	echo " Digite o endereço IP da sua TV que encontra no"
-	echo -e " caminho abaixo e tecle ${NEG}[Enter]${STD} para continuar:"
+	echo " Digite o Endereço IP da sua TV que Encontra no"
+	echo -e " Caminho Abaixo e Tecle ${NEG}[Enter]${STD} para Continuar:"
 	echo ""
 	echo -e " ${AMA226}Configurações${STD}, ${AMA226}Preferências do dispositivo${STD},"
 	echo -e " ${AMA226}Sobre${STD}, ${AMA226}Status${STD}."
@@ -840,7 +840,7 @@ emuladores(){
                 echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}0.${STD} Voltar ao Menu Principal"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
-		read -p " Digite um Número:" option
+		read -p " Digite um Número: " option
 		case $option in
 			1 )  ;;
 			2 )  ;;
