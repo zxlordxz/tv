@@ -809,10 +809,9 @@ menu_InstallApps() {
 	clear
 	option=0
 	until [ "$option" = "10" ]; do
-		echo -e "\033[1;31m═════════════════════════════════════════════\033[0m"
-		echo -e "      ${ROX027}Instalar Novos Apps${STD}"
-		echo -e "\033[1;31m═════════════════════════════════════════════\033[0m"
-		echo ""
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
+		echo -e "               INSTALAR/ATUALIZAR APPS"
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}1.${STD} Aptoide TV"
 		echo -e " ${BLU}2.${STD} Deezer MOD"
 		echo -e " ${BLU}3.${STD} Spotify MOD"
@@ -826,7 +825,7 @@ menu_InstallApps() {
                 echo -e " ${BLU}11.${STD} HTV"  
 		echo -e " ${BLU}12.${STD} Launcher Setting (Trocar Launcher)"
 		echo -e " ${BLU}0.${STD} ${ROX063}Retornar ao Menu Principal${STD}"
-		echo -e "\033[1;31m═════════════════════════════════════════════\033[0m"
+		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		read -p " Digite um número: " option
 		case $option in
 			1 ) install_App "Aptoide" ;;
