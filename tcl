@@ -810,7 +810,7 @@ menu_InstallApps() {
 	option=0
 	until [ "$option" = "10" ]; do
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
-		echo -e "               INSTALAR/ATUALIZAR APPS"
+		echo -e "        INSTALAR/ATUALIZAR APPS"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}1.${STD} Aptoide TV"
 		echo -e " ${BLU}2.${STD} Deezer MOD"
