@@ -723,7 +723,7 @@ menu_principal(){
 			5 ) menu_InstallApps ;;
                         6 ) emuladores ;;
                         7 ) atualizar ;;
-			0 ) exit ; fakeroot adb disconnect $IP >/dev/null ;;
+			0 ) exit ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${ROS}3${STD}${NEG},${STD} ${ROS}4${STD}${NEG},${STD} ${ROS}5${STD},${STD} ${ROS}6${STD} ${NEG}ou${STD} ${ROS}0 para Sair${STD}"; 
 		esac
 	done
