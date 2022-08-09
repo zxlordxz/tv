@@ -566,16 +566,6 @@ install_App() {
 	pause "Tecle [Enter] para retonar ao menu" ; menu_InstallApps
 }
 
-atualizar() {
-	# Atualiza o script
-	echo ""
-	curl -s https://raw.githubusercontent.com/zxlordxz/tv/main/tcl -o tcl; bash tcl
-		echo ""
-		echo -e " ${RED}*${STD} ${NEG}Erro ao atualizar. Verifique sua conexão ou tente mais tarde.${STD}"
-	fi
-	pause "Tecle [Enter] para retonar ao menu" ; menu_principal
-}
-
 install_youcine() {
 	# Baixa o App
 	echo ""
