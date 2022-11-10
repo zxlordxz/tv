@@ -11,7 +11,6 @@ com.tcl.MultiScreenInteraction_TV|Controla a TV pelo celular (T-Cast), função 
 com.android.providers.contacts|Embarcado pelo sistema Android nativo, exerce função de controle e exibição de contatos (pessoas) por API. Inútil em uma TV, *SEGURO DESATIVAR*.
 com.google.android.feedback|Telemetria do Google. *RECOMENDADO DESATIVAR*.
 com.google.android.tv.bugreportsender|Telemetria do Google. *RECOMENDADO DESATIVAR*.
-com.google.android.youtube.tv|Youtube nativo, exibe ads e não é customizável. Recomendado substituí-lo pelo SmartYoutube. *SEGURO DESATIVAR*.
 com.google.android.tvrecommendations|Atalho rápido de notificação quando um pendrive é plugado. Útil para o laucher padrão. Relativamente inútil, *SEGURO DESATIVAR*.
 com.google.android.leanbacklauncher.recommendations|Faz parte do launcher padrão, responsável por exibir recomendações dos parceiros da TCL/Google. Inútil, *RECOMENDADO DESATIVAR*.
 com.google.android.tv.remote.service|Atualiza o firmware do controle, executa serviços no background. Até hoje nenhuma atualização foi disponibilizada. Relativamente inútil, *SEGURO DESATIVAR*.
@@ -39,3 +38,4 @@ com.tcl.bi|Bi é uns par de recursos tipo esticker que acaba rodando no backgrou
 com.netflix.ninja|Netflix *SEGURO DESATIVAR*.
 com.google.android.inputmethod.latin|Gboard *SEGURO DESATIVAR*.
 com.amazon.amazonvideo.livingroom|Prime Vídeo *SEGURO DESATIVAR*.
+com.google.android.youtube.tv|Youtube nativo, exibe ads e não é customizável. Recomendado substituí-lo pelo SmartYoutube. *SEGURO DESATIVAR*.
