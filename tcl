@@ -4,7 +4,7 @@
 # https://adbshell.com/commands/adb-shell-pm-list-packages
 
 # Versão do script
-VER="v0.0.8"
+VER="v0.0.9"
 
 # Definição de Cores
 # Tabela de cores: https://misc.flogisoft.com/_media/bash/colors_format/256_colors_fg.png
@@ -632,7 +632,7 @@ install_youtube() {
 	pause "Tecle [Enter] para retonar ao menu" ; menu_InstallApps
 }
 
-install_htv() {
+install_netmod() {
 	# Baixa o App
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Baixando o ${1}...${STD}" && sleep 1
@@ -868,7 +868,7 @@ menu_InstallApps() {
 		echo -e " ${BLU}8.${STD} FX File"
 		echo -e " ${BLU}9.${STD} FX File Key"
 		echo -e " ${BLU}10.${STD} XBOX Game Pass"
-                echo -e " ${BLU}11.${STD} HTV"  
+                echo -e " ${BLU}11.${STD} NetMod [VPN]"  
 		echo -e " ${BLU}12.${STD} Launcher Setting (Trocar Launcher)"
                 echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}0.${STD} ${ROX063}Voltar ao Menu Principal${STD}"
@@ -885,7 +885,7 @@ menu_InstallApps() {
 			8 ) install_App "FX File" ;;
 			9 ) install_App "FX File Key" ;;
 			10 ) install_xcloud "xcloud" ;;
-                        11 ) install_htv "HTV" ;;
+                        11 ) install_netmod "NetMod" ;;
 			12 ) install_App "LauncherSetting" ;;
 			0 ) menu_principal ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${ROS}3${STD}${NEG},${STD} ${ROS}4${STD}${NEG},${STD} ${ROS}5${STD}${NEG},${STD} ${ROS}6${STD}${NEG},${STD} ${ROS}7${STD}${NEG},${STD} ${ROS}8${STD}${NEG},${STD}  ${ROS}9${STD}${NEG},${STD}   ${ROS}10${STD}${NEG},${STD} ${NEG}ou${STD} ${ROS}0 para sair${STD}";
